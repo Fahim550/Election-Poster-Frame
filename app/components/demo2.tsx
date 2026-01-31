@@ -1,6 +1,6 @@
 "use client";
 
-import template from "@/public/assets/template-clean.png";
+import template from "@/public/assets/template1.jpeg";
 import Image from "next/image";
 import { useRef, useState } from "react";
 
@@ -73,7 +73,7 @@ export default function CampaignFrame() {
       {/* POSTER PREVIEW */}
       <div className="relative w-[400px] h-[560px] shadow-2xl bg-white overflow-hidden">
         {/* USER IMAGE / PLACEHOLDER */}
-        <div
+        {/* <div
           onClick={() => fileInputRef.current?.click()}
           className="absolute top-[120px] left-1/2 -translate-x-1/2 
                      w-[220px] h-[220px] rounded-full overflow-hidden 
@@ -92,7 +92,7 @@ export default function CampaignFrame() {
               <p className="text-sm font-semibold">ছবি আপলোড করুন</p>
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* TEMPLATE */}
         <Image

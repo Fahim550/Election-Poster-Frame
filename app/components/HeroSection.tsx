@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[100vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-hero" />
 
@@ -32,7 +32,17 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left space-y-6 md:space-y-8 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight">
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-tight"
+              style={{
+                textShadow: `
+      -2px -2px 0 #E60023,
+       2px -2px 0 #E60023,
+      -2px  2px 0 #E60023,
+       2px  2px 0 #E60023
+    `,
+              }}
+            >
               সবার আগে
               <br />
               <span className="relative">
@@ -58,15 +68,47 @@ const HeroSection = () => {
               জনগণের অধিকার, গণতন্ত্র এবং একটি শক্তিশালী বাংলাদেশের প্রত্যয়
             </p>
 
-            <Link href="/photo-frame" className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 ">
-              <Button className="group">
-                আপনার ফ্রেম তৈরি করুন
-                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
+            <Link
+  href="/photo-frame"
+  className="flex flex-row gap-4 justify-center lg:justify-start pt-4"
+>
+  <Button
+  className="
+    group relative overflow-hidden
+    px-8 py-4
+    text-base font-semibold
+    text-white
+    rounded-2xl
+    bg-gradient-to-r from-green-700 to-teal-600
+    shadow-lg shadow-green-700/25
+    hover:shadow-xl hover:shadow-green-700/35
+    transition-all duration-300
+    hover:-translate-y-0.5
+    active:translate-y-0
+  "
+>
+
+    {/* Shine effect */}
+    <span
+      className="
+        absolute inset-0
+        bg-white/20
+        opacity-0
+        group-hover:opacity-100
+        transition-opacity duration-300
+      "
+    />
+
+    <span className="relative z-10 flex items-center">
+      আপনার ফ্রেম তৈরি করুন
+      <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+    </span>
+  </Button>
+</Link>
+
 
             <p className="text-sm text-primary-foreground/60">
-               আরও ফিচার শীঘ্রই আসছে
+              আরও ফিচার শীঘ্রই আসছে
             </p>
           </div>
 

@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-title: 'Social Media Campaign Frame Generator',
-  description: 'Create custom campaign frames for social media with your photo',
+  title: "Social Media Campaign Frame Generator",
+  description: "Create custom campaign frames for social media with your photo",
 };
 
 export default function RootLayout({
@@ -25,14 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <Header/>
+    <html>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Header />
         {children}
+        <Footer />
       </body>
-      <Footer/>
     </html>
   );
 }

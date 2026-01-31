@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
-export default function CampaignFrame() {
+export default function CampaignFrame2() {
   const [userImage, setUserImage] = useState<any>(null);
   const [imagePreview, setImagePreview] = useState<any>(null);
   const [isDragging, setIsDragging] = useState<any>(false);

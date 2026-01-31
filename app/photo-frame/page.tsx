@@ -1,9 +1,11 @@
-import CampaignFrame from '../components/demo2'
+import FrameBuilder from '../components/frame-builder'
 
 export default function page() {
   return (
     <div>
-        <CampaignFrame/>
+        {/* <CampaignFrame/> */}
+        <FrameBuilder/>
+        
     </div>
   )
 }
