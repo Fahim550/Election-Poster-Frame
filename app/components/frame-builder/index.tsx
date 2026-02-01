@@ -15,6 +15,7 @@ export interface FrameTemplate {
   name: string;
   src: string;
   type: FrameType;
+  aspectRatio?: string; // e.g., "1/1", "1080/1350"
 }
 
 export interface ImageState {
@@ -42,11 +43,11 @@ const FrameBuilder = () => {
 
   // Frame templates - custom templates as background overlays
   const frameTemplates: FrameTemplate[] = [
-    { id: "frame-1", name: "ফ্রেম ১", src: "/frames/frame-1.png", type: "profile" },
-    { id: "frame-2", name: "ফ্রেম ২", src: "/frames/frame-2.png", type: "profile" },
-    { id: "frame-3", name: "ফ্রেম ৩", src: "/frames/frame-3.png", type: "profile" },
-    { id: "frame-4", name: "ফ্রেম ৪", src: "/frames/frame-4.png", type: "post" },
-    { id: "frame-5", name: "ফ্রেম ৫", src: "/frames/frame-5.png", type: "post" },
+    { id: "frame-1", name: "ফ্রেম ১", src: "/frames/frame-1.png", type: "profile", aspectRatio: "1/1" },
+    { id: "frame-2", name: "ফ্রেম ২", src: "/frames/frame-2.png", type: "profile", aspectRatio: "1/1" },
+    { id: "frame-3", name: "ফ্রেম ৩", src: "/frames/frame-3.png", type: "profile", aspectRatio: "1/1" },
+    { id: "frame-4", name: "ফ্রেম ৪", src: "/frames/frame-4.png", type: "post", aspectRatio: "1080/1350" },
+    { id: "frame-5", name: "ফ্রেম ৫", src: "/frames/frame-5.png", type: "post", aspectRatio: "1080/1350" },
   ];
 
   const filteredFrames = frameTemplates.filter((f) => f.type === frameType);
@@ -148,7 +149,7 @@ const FrameBuilder = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const size = frameType === "profile" ? { w: 1080, h: 1080 } : { w: 1580, h: 1875 };
+    const size = frameType === "profile" ? { w: 1080, h:1500 } : { w: 1580, h: 1875 };
     canvas.width = size.w;
     canvas.height = size.h;
 
@@ -163,7 +164,7 @@ const FrameBuilder = () => {
           frameImage.onerror = () => reject(new Error("Frame load failed"));
           frameImage.src = currentFrame.src;
         });
-        ctx.drawImage(frameImage, 0, 0, canvas.width, canvas.height);
+        ctx.drawImage(frameImage, 10, 0, canvas.width, canvas.height);
       } catch {
         // Frame image not found, fill with white
         ctx.fillStyle = "#ffffff";
